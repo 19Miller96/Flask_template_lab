@@ -1,0 +1,16 @@
+body{
+    background-color: lightblue;
+}
+
+.event-box{
+    column-count: 3;
+    display: flex;
+    flex: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: grey;
+}
+ .event{
+     display: flex;
+     flex: 33%
+ }
