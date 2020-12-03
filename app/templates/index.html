@@ -1,24 +1,37 @@
-% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
-    
-    <h1>My ToDo List!</h1>
 
-    <form action="/add-task" method="post"> <!-- ADDED -->
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title">
+<!-- <label for="birthday">Birthday:</label>
+<input type="date" id="birthday" name="birthday"> -->
+    
+    <h1>Upcoming Events!</h1>
+
+    <form action="/add-event" method="post">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="event-name">
+        <label for="event_date">Date</label>
+        <input type="date" id="event_date" name="event_date">
+        <label for="number_of_guests">Number Of Guests</label>
+        <input type="text" name="number_of_guests" id="number_of_guests">
+        <label for="room_location">Room Location</label>
+        <input type="text" name="room_location" id="room_location">
         <label for="description">Description</label>
         <textarea name="description" rows="2" cols="30"></textarea>
-        <input type="submit" value="Add Task">
-      </form>
+        <input type="submit" value="Add Event">
+    </form>
 
-    {% for task in tasks %}
+    {% for event in events %}
        <div>
-        <p>
-            {{ task.title }}: <b>{{ task.description }}</b>
-            {% if task.done %}
-            <span> &#9989; </span>
-            {% endif %}
-        </p>
+           <h2><b>{{ event.name }}</b></h2>
+           <ul>
+               <li><b>{{ event.date }}</b></li>
+               <li><b>{{ event.guests }}</b></li>
+               <li><b>{{ event.location }}</b></li>
+               <li><b>{{ event.description }}</b></li>
+           </ul>
+        <!-- <p>
+            {{ event.name }}: <b>{{ event.date }}</b> <b>{{ event.guests }}</b> <b>{{ event.location }}</b> <b>{{ event.description }}</b>
+        </p> -->
     </div>
     {% endfor %} {% endblock %}
